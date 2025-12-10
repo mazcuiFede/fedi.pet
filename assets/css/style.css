@@ -4552,7 +4552,6 @@ select:focus {
 }
 
 .home9 .subscribe-section .download-buttons {
-  margin-top: 55px;
   display: block;
   text-align: center;
 }
@@ -4709,4 +4708,50 @@ select:focus {
 .home9 .pricing .mybtn-bg {
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 80px;
+  right: 15px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  box-shadow: 0px 0px 30px 0px rgba(37, 211, 102, 0.5);
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.whatsapp-float i {
+  line-height: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    bottom: 75px;
+  }
+
+  .whatsapp-float i {
+    line-height: 50px;
+  }
 }
