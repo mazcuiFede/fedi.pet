@@ -4331,7 +4331,7 @@ select:focus {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  animation: b-shadow 2s linear infinite;
+  animation: b-shadow 6s linear infinite;
 }
 
 .home9 .hero-area .right-img .discount-circle {
