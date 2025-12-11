@@ -1009,8 +1009,8 @@ p {
   font-size: 16px;
   color: #555;
   line-height: 1.625;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: none;
+  hyphens: none;
 }
 
 a {
@@ -2569,6 +2569,16 @@ select:focus {
 .footer .fotter-social-links ul li a.google-plus {
   background: #d1062c;
   border-color: #d1062c;
+}
+
+.footer .fotter-social-links ul li a.instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: #e1306c;
+}
+
+.footer .fotter-social-links ul li a.tiktok {
+  background: #000000;
+  border-color: #000000;
 }
 
 .footer .copy-bg {
