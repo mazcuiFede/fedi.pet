@@ -28,6 +28,48 @@
     <!-- responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <!-- Custom styles for header social links -->
+    <style>
+        .header-social-links {
+            display: flex;
+            align-items: center;
+        }
+        .header-social-links ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 10px;
+        }
+        .header-social-links ul li {
+            margin: 0;
+        }
+        .header-social-links ul li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .header-social-links ul li a.instagram {
+            background: linear-gradient(135deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+        .header-social-links ul li a.tiktok {
+            background: #000;
+        }
+        .header-social-links ul li a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .header-social-links ul li a i {
+            font-size: 18px;
+        }
+    </style>
+
 </head>
 
 <body class="home9">
@@ -82,6 +124,22 @@
                                     <a class="nav-link" href="#contact">Contacto</a>
                                 </li>
                             </ul>
+                            <div class="header-social-links ml-3">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.instagram.com/fedi.pet/" target="_blank" class="instagram" title="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.tiktok.com/@fedi.pet" target="_blank" class="tiktok" title="TikTok">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14" height="14" fill="currentColor">
+                                                <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -1267,9 +1325,9 @@
                                 data-parent="#accordion-1">
                                 <div class="panel-body">
                                     <p>
-                                        Podés contactarnos a través del formulario en esta página o por WhatsApp al
-                                        email fedi.pet25@gmail.com. Aceptamos transferencia bancaria a Brubank (CBU:
-                                        1430001713043427350013, ALIAS: FEDI.PET.ARS) y consultá por precios mayoristas.
+                                        Seleccioná en la página el producto que te interesaría adquirir, luego hacé
+                                        click en comprar y realizá el pago mediante mercadopago. Luego de esto, vas a
+                                        completar la dirección donde te haremos el envío.
                                         Realizamos envíos a todo el país.
                                     </p>
                                 </div>
