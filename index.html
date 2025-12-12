@@ -1469,6 +1469,253 @@
     </div>
     <!-- Back to Top End -->
 
+    <!-- Purchase Popup Modal -->
+    <div id="purchaseModal" class="purchase-modal">
+        <div class="purchase-modal-content">
+            <div class="purchase-modal-header">
+                <h3>¡Estás a un paso de tu FediPet!</h3>
+            </div>
+            <div class="purchase-modal-body">
+                <p>Serás redirigido a MercadoPago para completar tu compra de forma segura.</p>
+                <p>Luego de esto te pediremos la dirección donde te enviaremos tu FediPet.</p>
+                <p class="countdown-text">Redirigiendo en <span id="countdown">1</span> segundos...</p>
+            </div>
+            <div class="purchase-modal-footer">
+                <button id="cancelBtn" class="mybtn3">
+                    <span>Cancelar</span>
+                </button>
+                <button id="buyNowBtn" class="mybtn3 mybtn-bg">
+                    <span>Ir Ahora</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Purchase Modal Styles -->
+    <style>
+        .purchase-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .purchase-modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 15px;
+            max-width: 550px;
+            box-shadow: 0 20px 60px rgba(234, 56, 77, 0.3);
+            animation: slideDown 0.4s ease;
+            overflow: hidden;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px) scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .purchase-modal-header {
+            background: linear-gradient(135deg, #EA384D 0%, #c92d40 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .purchase-modal-header::before {
+            content: '🐾';
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .purchase-modal-header h3 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .purchase-modal-body {
+            padding: 40px 30px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+
+        .purchase-modal-body p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .countdown-text {
+            font-weight: 700;
+            color: #EA384D;
+            font-size: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown-text span {
+            font-size: 32px;
+            color: #EA384D;
+            font-weight: 900;
+            display: inline-block;
+            min-width: 35px;
+        }
+
+        .purchase-modal-footer {
+            padding: 20px 30px 35px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            background: #f9f9f9;
+        }
+
+        .purchase-modal-footer button {
+            flex: 1;
+            max-width: 220px;
+            font-size: 15px;
+            padding: 14px 25px;
+            font-weight: 600;
+        }
+
+        .purchase-modal-footer .mybtn3:not(.mybtn-bg) {
+            background: white;
+            border: 2px solid #ddd;
+            color: #666;
+        }
+
+        .purchase-modal-footer .mybtn3:not(.mybtn-bg):hover {
+            border-color: #EA384D;
+            color: #EA384D;
+            background: white;
+        }
+
+        @media (max-width: 576px) {
+            .purchase-modal-content {
+                margin: 20% 15px;
+            }
+
+            .purchase-modal-footer {
+                flex-direction: column;
+            }
+
+            .purchase-modal-footer button {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <!-- Purchase Modal Script -->
+    <script>
+        (function () {
+            var modal = document.getElementById('purchaseModal');
+            var buyNowBtn = document.getElementById('buyNowBtn');
+            var cancelBtn = document.getElementById('cancelBtn');
+            var countdownElement = document.getElementById('countdown');
+            var redirectUrl = '';
+            var countdownInterval;
+            var timeLeft = 10;
+
+            // Interceptar todos los clicks en botones de compra
+            document.addEventListener('click', function (e) {
+                // Buscar si el click fue en un botón de compra o dentro de uno
+                var target = e.target;
+                var link = null;
+
+                // Buscar el elemento <a> más cercano
+                while (target && target !== document) {
+                    if (target.tagName === 'A' && target.href && target.href.includes('mpago.la')) {
+                        link = target;
+                        break;
+                    }
+                    target = target.parentElement;
+                }
+
+                if (link) {
+                    e.preventDefault(); // Prevenir la navegación
+                    redirectUrl = link.href;
+                    showModal();
+                }
+            });
+
+            function showModal() {
+                modal.style.display = 'block';
+                timeLeft = 17;
+                countdownElement.textContent = timeLeft;
+                startCountdown();
+            }
+
+            function hideModal() {
+                modal.style.display = 'none';
+                clearInterval(countdownInterval);
+            }
+
+            function startCountdown() {
+                countdownInterval = setInterval(function () {
+                    timeLeft--;
+                    countdownElement.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        window.open(redirectUrl, '_blank');
+                        hideModal();
+                    }
+                }, 1000);
+            }
+
+            // Botón "Comprar Ahora"
+            buyNowBtn.addEventListener('click', function () {
+                clearInterval(countdownInterval);
+                window.open(redirectUrl, '_blank');
+                hideModal();
+            });
+
+            // Botón "Cancelar"
+            cancelBtn.addEventListener('click', function () {
+                hideModal();
+            });
+
+            // Cerrar al hacer click fuera del modal
+            window.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+        })();
+    </script>
 
     <!-- jquery -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
