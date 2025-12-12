@@ -278,43 +278,51 @@
     <!-- main -->
     <script src="assets/js/main.js"></script>
 
-    <!-- Form mailto handler -->
+    <!-- Form PHP SMTP handler -->
     <script>
         function enviarEmail() {
-            // Obtener los valores del formulario
-            var nombre = document.getElementById('nombre').value;
-            var celular = document.getElementById('celular').value;
-            var direccion = document.getElementById('direccion').value;
-            var comentarios = document.getElementById('comentarios').value;
+            // Obtener el botón de submit
+            var submitBtn = document.querySelector('button[type="submit"]');
 
-            // Construir el cuerpo del email
-            var body = 'NUEVO PEDIDO - DATOS DE ENVÍO\n\n';
-            body += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
-            body += 'NOMBRE: ' + nombre + '\n\n';
-            body += 'CELULAR: ' + celular + '\n\n';
-            body += 'DIRECCIÓN DE ENVÍO:\n' + direccion + '\n\n';
+            // Deshabilitar el botón mientras se envía
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Enviando...</span>';
 
-            if (comentarios) {
-                body += 'COMENTARIOS:\n' + comentarios + '\n\n';
-            }
+            // Obtener los datos del formulario
+            var formData = new FormData(document.getElementById('contactForm'));
 
-            body += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
+            // Enviar los datos al servidor PHP
+            fetch('enviar-email.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                if (data.success) {
+                    // Éxito - Mostrar mensaje de confirmación
+                    document.getElementById('enviado').style.display = 'block';
+                    document.getElementById('enviado').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    document.getElementById('contactForm').reset();
+                } else {
+                    // Error del servidor
+                    alert('Error: ' + data.message + '\n\nPor favor contactanos por WhatsApp.');
+                }
 
-            // Crear el enlace mailto
-            var mailtoLink = 'mailto:matias.azcui@gmail.com' +
-                '?subject=' + encodeURIComponent('Nuevo Pedido FediPet - Datos de Envío') +
-                '&body=' + encodeURIComponent(body);
+                // Rehabilitar el botón
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Enviar Datos</span>';
+            })
+            .catch(function(error) {
+                // Error de red o PHP
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Por favor contactanos por WhatsApp.');
 
-            // Abrir el cliente de email
-            window.location.href = mailtoLink;
-
-            // Mostrar mensaje de confirmación después de un breve delay
-            setTimeout(function() {
-                document.getElementById('enviado').style.display = 'block';
-                document.getElementById('enviado').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Resetear el formulario
-                document.getElementById('contactForm').reset();
-            }, 1000);
+                // Rehabilitar el botón
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Enviar Datos</span>';
+            });
 
             return false; // Prevenir el submit por defecto
         }
