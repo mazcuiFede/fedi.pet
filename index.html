@@ -1728,17 +1728,16 @@
 
                     if (timeLeft <= 0) {
                         clearInterval(countdownInterval);
-                        window.open(redirectUrl, '_blank');
-                        hideModal();
+                        // Usar location.href para evitar que el navegador bloquee el popup
+                        window.location.href = redirectUrl;
                     }
                 }, 1000);
             }
 
-            // Botón "Comprar Ahora"
+            // Botón "Ir Ahora" - acción directa del usuario, no se bloquea
             buyNowBtn.addEventListener('click', function () {
                 clearInterval(countdownInterval);
-                window.open(redirectUrl, '_blank');
-                hideModal();
+                window.location.href = redirectUrl;
             });
 
             // Botón "Cancelar"
