@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Configuración del correo
             $mail->setFrom('no-reply@clokteam.com', 'FediPet Website'); // Correo y nombre del remitente
-            $mail->addAddress('matias.azcui@gmail.com', 'FediPet'); // Correo y nombre del destinatario
+            $mail->addAddress('fedi.pet25@gmail.com', 'FediPet'); // Correo y nombre del destinatario
             // $mail->addAddress('fedi.pet25@gmail.com', 'FediPet'); // Email adicional si lo necesitas
 
             // Contenido del mensaje
