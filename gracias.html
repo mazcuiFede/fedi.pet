@@ -292,7 +292,7 @@
             var formData = new FormData(document.getElementById('contactForm'));
 
             // Enviar los datos al servidor PHP
-            fetch('enviar-email.php', {
+            fetch('sendbymail.php', {
                 method: 'POST',
                 body: formData
             })
