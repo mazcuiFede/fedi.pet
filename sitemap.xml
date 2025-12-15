@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- Home Page -->
+    <url>
+        <loc>https://fedi.pet/</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://fedi.pet/assets/images/fedi-banner.png</image:loc>
+            <image:title>FediPet Dispensador Automático</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://fedi.pet/assets/images/logo.png</image:loc>
+            <image:title>FediPet Logo</image:title>
+        </image:image>
+    </url>
+
+    <!-- Thank You Page -->
+    <url>
+        <loc>https://fedi.pet/gracias.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Product Images -->
+    <url>
+        <loc>https://fedi.pet/assets/images/fedi-mini.png</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://fedi.pet/assets/images/fedi-mini-con-camara.png</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://fedi.pet/assets/images/fedicam-3L.png</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://fedi.pet/assets/images/fedisupervision-6L.png</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset>
