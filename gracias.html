@@ -34,6 +34,7 @@
             display: flex;
             align-items: center;
         }
+
         .header-social-links ul {
             display: flex;
             list-style: none;
@@ -41,9 +42,11 @@
             padding: 0;
             gap: 10px;
         }
+
         .header-social-links ul li {
             margin: 0;
         }
+
         .header-social-links ul li a {
             display: flex;
             align-items: center;
@@ -55,21 +58,34 @@
             color: #fff;
             transition: all 0.3s ease;
         }
+
         .header-social-links ul li a.instagram {
             background: linear-gradient(135deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
         }
+
         .header-social-links ul li a.tiktok {
             background: #000;
         }
+
         .header-social-links ul li a:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
+
         .header-social-links ul li a i {
             font-size: 18px;
         }
     </style>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17809404296"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17809404296');
+    </script>
 </head>
 
 <body class="home9">
@@ -121,14 +137,18 @@
                             <div class="header-social-links ml-3">
                                 <ul>
                                     <li>
-                                        <a href="https://www.instagram.com/fedi.pet/" target="_blank" class="instagram" title="Instagram">
+                                        <a href="https://www.instagram.com/fedi.pet/" target="_blank" class="instagram"
+                                            title="Instagram">
                                             <i class="fab fa-instagram"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.tiktok.com/@fedi.pet" target="_blank" class="tiktok" title="TikTok">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14" height="14" fill="currentColor">
-                                                <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+                                        <a href="https://www.tiktok.com/@fedi.pet" target="_blank" class="tiktok"
+                                            title="TikTok">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14"
+                                                height="14" fill="currentColor">
+                                                <path
+                                                    d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
                                             </svg>
                                         </a>
                                     </li>
@@ -354,33 +374,33 @@
                 method: 'POST',
                 body: formData
             })
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                if (data.success) {
-                    // Éxito - Mostrar mensaje de confirmación
-                    document.getElementById('enviado').style.display = 'block';
-                    document.getElementById('enviado').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    document.getElementById('contactForm').reset();
-                } else {
-                    // Error del servidor
-                    alert('Error: ' + data.message + '\n\nPor favor contactanos por WhatsApp.');
-                }
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (data.success) {
+                        // Éxito - Mostrar mensaje de confirmación
+                        document.getElementById('enviado').style.display = 'block';
+                        document.getElementById('enviado').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        // Error del servidor
+                        alert('Error: ' + data.message + '\n\nPor favor contactanos por WhatsApp.');
+                    }
 
-                // Rehabilitar el botón
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Enviar Datos</span>';
-            })
-            .catch(function(error) {
-                // Error de red o PHP
-                console.error('Error:', error);
-                alert('Hubo un error al enviar el formulario. Por favor contactanos por WhatsApp.');
+                    // Rehabilitar el botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Enviar Datos</span>';
+                })
+                .catch(function (error) {
+                    // Error de red o PHP
+                    console.error('Error:', error);
+                    alert('Hubo un error al enviar el formulario. Por favor contactanos por WhatsApp.');
 
-                // Rehabilitar el botón
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Enviar Datos</span>';
-            });
+                    // Rehabilitar el botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Enviar Datos</span>';
+                });
 
             return false; // Prevenir el submit por defecto
         }
