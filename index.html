@@ -250,6 +250,59 @@
         .header-social-links ul li a i {
             font-size: 18px;
         }
+
+        /* Hot Sale pricing */
+        .price-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .hot-sale-badge {
+            display: inline-block;
+            background: #EA384D;
+            color: #fff;
+            -webkit-text-fill-color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .compare-table .price {
+            font-size: 15px;
+        }
+
+        .compare-table .old-price-table {
+            display: block;
+            text-decoration: line-through;
+            color: #999;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .table-price-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .table-new-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -912,9 +965,11 @@
                                         </li>
                                     </ul>
                                     <div class="price">
-                                        <p class="new-price">
-                                            $88.485
-                                        </p>
+                                        <div class="price-wrapper">
+                                            <span class="hot-sale-badge">HOT SALE -15%</span>
+                                            <span class="old-price">$104.100</span>
+                                            <p class="new-price">$88.485</p>
+                                        </div>
                                     </div>
 
                                     <h4 class="title">
@@ -953,9 +1008,11 @@
                                         </li>
                                     </ul>
                                     <div class="price">
-                                        <p class="new-price">
-                                            $148.665
-                                        </p>
+                                        <div class="price-wrapper">
+                                            <span class="hot-sale-badge">HOT SALE -15%</span>
+                                            <span class="old-price">$174.900</span>
+                                            <p class="new-price">$148.665</p>
+                                        </div>
                                     </div>
 
                                     <h4 class="title">
@@ -994,9 +1051,11 @@
                                         </li>
                                     </ul>
                                     <div class="price">
-                                        <p class="new-price">
-                                            $162.860
-                                        </p>
+                                        <div class="price-wrapper">
+                                            <span class="hot-sale-badge">HOT SALE -15%</span>
+                                            <span class="old-price">$191.600</span>
+                                            <p class="new-price">$162.860</p>
+                                        </div>
                                     </div>
 
                                     <h4 class="title">
@@ -1035,9 +1094,11 @@
                                         </li>
                                     </ul>
                                     <div class="price">
-                                        <p class="new-price">
-                                            $169.915
-                                        </p>
+                                        <div class="price-wrapper">
+                                            <span class="hot-sale-badge">HOT SALE -15%</span>
+                                            <span class="old-price">$199.900</span>
+                                            <p class="new-price">$169.915</p>
+                                        </div>
                                     </div>
 
                                     <h4 class="title">
@@ -1185,10 +1246,34 @@
                             </tr>
                             <tr>
                                 <th>Precio</th>
-                                <th class="price text-center">$88.485</th>
-                                <th class="price text-center">$148.665</th>
-                                <th class="price text-center">$162.860</th>
-                                <th class="price text-center">$169.915</th>
+                                <th class="price text-center">
+                                    <div class="table-price-wrapper">
+                                        <span class="hot-sale-badge">HOT SALE -15%</span>
+                                        <span class="old-price-table">$104.100</span>
+                                        <span class="table-new-price">$88.485</span>
+                                    </div>
+                                </th>
+                                <th class="price text-center">
+                                    <div class="table-price-wrapper">
+                                        <span class="hot-sale-badge">HOT SALE -15%</span>
+                                        <span class="old-price-table">$174.900</span>
+                                        <span class="table-new-price">$148.665</span>
+                                    </div>
+                                </th>
+                                <th class="price text-center">
+                                    <div class="table-price-wrapper">
+                                        <span class="hot-sale-badge">HOT SALE -15%</span>
+                                        <span class="old-price-table">$191.600</span>
+                                        <span class="table-new-price">$162.860</span>
+                                    </div>
+                                </th>
+                                <th class="price text-center">
+                                    <div class="table-price-wrapper">
+                                        <span class="hot-sale-badge">HOT SALE -15%</span>
+                                        <span class="old-price-table">$199.900</span>
+                                        <span class="table-new-price">$169.915</span>
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
