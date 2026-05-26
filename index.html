@@ -341,7 +341,7 @@
 
         /* 2. Promo ticker animado - fijo en el tope absoluto de la página */
         .promo-ticker {
-            background: #FF6D00;
+            background: #E98457;
             color: #fff;
             padding: 9px 0;
             line-height: 1.45;
@@ -500,12 +500,25 @@
             background: #EBF2FF !important;
         }
 
-        /* 6. Estrellas - dorado ámbar */
+        /* 6. Estrellas - naranja de marca fedi */
         .pricing .product-slider .item .single-product .content .stars li {
-            color: #FFB300 !important;
+            color: #E98457 !important;
         }
         .dealofweek .deal-slider-area .content .right-area .stars li {
-            color: #FFB300 !important;
+            color: #E98457 !important;
+        }
+
+        /* 6b. Precios - azul sólido de marca (sin gradiente) */
+        .pricing .product-slider .item .single-product .content .price .new-price {
+            background-image: none !important;
+            -webkit-text-fill-color: #0250c5 !important;
+            color: #0250c5 !important;
+        }
+
+        /* 2b. Ticker más fino en mobile */
+        @media (max-width: 575px) {
+            .promo-ticker { padding: 6px 0; }
+            .promo-ticker-track span { font-size: 12px !important; margin: 0 18px; }
         }
 
         /* 8. Botones de descarga de app - azul de marca */
@@ -659,6 +672,7 @@
                 <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#heroCarousel" data-slide-to="1"></li>
                 <li data-target="#heroCarousel" data-slide-to="2"></li>
+                <li data-target="#heroCarousel" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
 
@@ -673,7 +687,17 @@
                     </div>
                 </div>
 
-                <!-- Slide 2: Perro + Dispenser -->
+                <!-- Slide 2: Foto real + botón Ver Modelos -->
+                <div class="carousel-item">
+                    <div style="position:relative; height:100%;">
+                        <img src="assets/images/foto-prueba.png" alt="FediPet en acción" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                        <div class="hero-btn-overlay">
+                            <a href="#pricing" class="mybtn3 mybtn-bg hero-cta-btn"><span>Ver Modelos</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 (placeholder perro - reemplazar con foto real) -->
                 <div class="carousel-item">
                     <div class="hero-pet-slide hero-dog-slide">
                         <div class="container">
@@ -1181,7 +1205,7 @@
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center">
                     <div class="center-feature align-self-center">
-                        <img src="assets/images/fedicam-3L.png" alt="">
+                        <img src="assets/images/fedisupervision-6L.png" alt="FediPet Super Vision 6L">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -1389,7 +1413,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedi-mini.png" alt="">
+                                    <img src="assets/images/fedi-mini-alimento.png" alt="">
 
                                     <div class="links">
                                         <a href="https://mpago.la/24T6uJi" class="mybtn3 mybtn-bg"
@@ -1430,7 +1454,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedi-mini-con-camara.png" alt="">
+                                    <img src="assets/images/fedi-cam3l-alimento.png" alt="">
 
                                     <div class="links">
                                         <a href="https://mpago.la/1uMtTgG" class="mybtn3 mybtn-bg"
@@ -1471,7 +1495,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedicam-3L.png" alt="">
+                                    <img src="assets/images/fedicam-mini4l-alimento.png" alt="">
 
                                     <div class="links">
                                         <a href="https://mpago.la/2JfFYvK" class="mybtn3 mybtn-bg"
@@ -1512,7 +1536,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedisupervision-6L.png" alt="">
+                                    <img src="assets/images/fedivision-6l-alimento.png" alt="">
 
                                     <div class="links">
                                         <a href="https://mpago.la/2P1U62h" class="mybtn3 mybtn-bg"
@@ -1659,28 +1683,28 @@
                                 <th></th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedi-mini.png" alt="">
+                                        <img src="assets/images/fedi-mini-alimento.png" alt="">
                                     </div>
                                     <h3 class="product-title">Fedi Smart Mini 4L</h3>
                                     <p class="product-subtitle">Económico</p>
                                 </th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedi-mini-con-camara.png" alt="">
+                                        <img src="assets/images/fedi-cam3l-alimento.png" alt="">
                                     </div>
                                     <h3 class="product-title">Fedi Cam 3L</h3>
                                     <p class="product-subtitle">Con Cámara HD</p>
                                 </th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedicam-3L.png" alt="">
+                                        <img src="assets/images/fedicam-mini4l-alimento.png" alt="">
                                     </div>
                                     <h3 class="product-title">Fedi Cam Mini 4L</h3>
                                     <p class="product-subtitle">Compacto</p>
                                 </th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedisupervision-6L.png" alt="">
+                                        <img src="assets/images/fedivision-6l-alimento.png" alt="">
                                     </div>
                                     <h3 class="product-title">Super Fedi Vision 6L</h3>
                                     <p class="product-subtitle">Modelo Premium</p>
