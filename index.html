@@ -313,6 +313,12 @@
             border-bottom: none !important;
             top: 32px !important;
         }
+        /* 1b. Header más alto */
+        .home9 .navigation .navbar,
+        .home9 .navigation.stiky-nav .navbar {
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+        }
         .home9 .navigation .navbar-brand img,
         .home9 .navigation.stiky-nav .navbar .navbar-brand img {
             filter: brightness(0) invert(1) !important;
@@ -378,9 +384,9 @@
 
         /* 3. Hero carousel - altura uniforme en los 3 slides */
         .home9 .hero-area {
-            height: 56vh !important;
-            min-height: 420px !important;
-            max-height: 700px !important;
+            height: 70vh !important;
+            min-height: 520px !important;
+            max-height: 860px !important;
             overflow: hidden !important;
             padding: 0 !important;
         }
@@ -412,13 +418,19 @@
         }
         @media (max-width: 767px) {
             .home9 .hero-area {
-                height: 52vw !important;
-                min-height: 260px !important;
+                height: 65vh !important;
+                min-height: 360px !important;
+                max-height: none !important;
             }
             .hero-btn-overlay {
                 bottom: 8%;
                 left: 50%;
                 transform: translateX(-50%);
+            }
+            /* Slide 1 banner mobile: mostrar imagen completa */
+            #heroCarousel .carousel-item img {
+                object-fit: cover !important;
+                object-position: center center !important;
             }
         }
         /* Indicadores del carousel */
@@ -688,8 +700,8 @@
 
                 <!-- Slide 2: Foto real -->
                 <div class="carousel-item">
-                    <div style="position:relative; height:100%;">
-                        <img src="assets/images/fotoprueba2.png" alt="FediPet en acción" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                    <div style="position:relative; height:100%; background:#0a1f5c; display:flex; align-items:center; justify-content:center;">
+                        <img src="assets/images/fotoprueba2.png" alt="FediPet en acción" style="width:100%; height:100%; object-fit:contain; object-position:center center;">
                         <div class="hero-btn-overlay">
                             <a href="#pricing" class="mybtn3 mybtn-bg hero-cta-btn"><span>Ver Modelos</span></a>
                         </div>
