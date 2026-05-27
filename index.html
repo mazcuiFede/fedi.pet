@@ -58,6 +58,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Brand fonts: Chango + Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -192,17 +194,36 @@
 
     <!-- Custom styles for header social links -->
     <style>
+        /* Compare table: imágenes subidas con espacio para sombra */
+        .compare-table .product-image {
+            padding-bottom: 18px;
+        }
         .compare-table .product-image img {
-            width: 150px;
+            width: 160px;
             height: auto;
             max-width: 100%;
             object-fit: contain;
+            margin-top: -10px;
+        }
+        /* Eliminar línea superior del thead */
+        .compare-table thead tr:first-child th {
+            border-top: none !important;
         }
 
+        /* Slider de productos: celeste continuo sin bordes */
+        .product-slider .owl-item { padding: 0 !important; }
+        .product-slider .single-product { border-radius: 0 !important; box-shadow: none !important; border: none !important; margin: 0 !important; }
+        .product-slider .single-product .img {
+            background: #EBF3FE !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
         .product-slider .single-product .img img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: contain;
+            background: #EBF3FE;
         }
 
         .header-social-links {
@@ -313,11 +334,11 @@
             border-bottom: none !important;
             top: 32px !important;
         }
-        /* 1b. Header más alto */
+        /* 1b. Header compacto */
         .home9 .navigation .navbar,
         .home9 .navigation.stiky-nav .navbar {
-            padding-top: 20px !important;
-            padding-bottom: 20px !important;
+            padding-top: 6px !important;
+            padding-bottom: 6px !important;
         }
         .home9 .navigation .navbar-brand img,
         .home9 .navigation.stiky-nav .navbar .navbar-brand img {
@@ -347,8 +368,8 @@
 
         /* 2. Promo ticker animado - fijo en el tope absoluto de la página */
         .promo-ticker {
-            background: #E98457;
-            color: #fff;
+            background: #F2EAD8;
+            color: #0250c5;
             padding: 6px 0;
             line-height: 1.4;
             overflow: hidden;
@@ -384,9 +405,9 @@
 
         /* 3. Hero carousel - altura uniforme en los 3 slides */
         .home9 .hero-area {
-            height: 70vh !important;
-            min-height: 520px !important;
-            max-height: 860px !important;
+            height: 84vh !important;
+            min-height: 624px !important;
+            max-height: 1032px !important;
             overflow: hidden !important;
             padding: 0 !important;
         }
@@ -418,8 +439,8 @@
         }
         @media (max-width: 767px) {
             .home9 .hero-area {
-                height: 65vh !important;
-                min-height: 360px !important;
+                height: 78vh !important;
+                min-height: 432px !important;
                 max-height: none !important;
             }
             .hero-btn-overlay {
@@ -509,7 +530,7 @@
 
         /* 5. Fondo de imagen de productos - azul claro de marca */
         .pricing .product-slider .item .single-product .img {
-            background: #EBF2FF !important;
+            background: #EBF3FE !important;
         }
 
         /* 6. Estrellas - naranja de marca fedi */
@@ -813,6 +834,95 @@
         </div>
     </div>
     <!-- Hero Area End -->
+
+    <!-- Sub-Banner Start -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-items">
+                <div class="trust-bar-item">
+                    <span class="trust-bar-icon">🚚</span>
+                    <span>Envío <strong>GRATIS</strong> a todo el País</span>
+                </div>
+                <div class="trust-bar-divider"></div>
+                <div class="trust-bar-item">
+                    <span class="trust-bar-icon">🔒</span>
+                    <span>Compra <strong>Segura</strong></span>
+                </div>
+                <div class="trust-bar-divider"></div>
+                <div class="trust-bar-item">
+                    <span class="trust-bar-icon">💳</span>
+                    <span><strong>3 Cuotas</strong> Sin Interés</span>
+                </div>
+                <div class="trust-bar-divider"></div>
+                <div class="trust-bar-item">
+                    <span class="trust-bar-icon">↩️</span>
+                    <span>Devolución <strong>sin Cargo</strong> en 3 Días</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .trust-bar {
+            background: #E98457;
+            padding: 34px 0;
+            border-top: none;
+        }
+        .trust-bar-items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+        .trust-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 20px;
+            white-space: nowrap;
+        }
+        .trust-bar-item strong {
+            font-family: 'Chango', cursive;
+            font-weight: 400;
+            color: #F2EAD8;
+        }
+        .trust-bar-icon {
+            font-size: 22px;
+            line-height: 1;
+        }
+        .trust-bar-divider {
+            width: 1px;
+            height: 28px;
+            background: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 767px) {
+            .trust-bar-items {
+                gap: 0;
+            }
+            .trust-bar-item {
+                width: 50%;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 8px 10px;
+                font-size: 12px;
+                white-space: normal;
+                gap: 6px;
+            }
+            .trust-bar-icon {
+                font-size: 18px;
+                flex-shrink: 0;
+                padding-top: 1px;
+            }
+            .trust-bar-divider {
+                display: none;
+            }
+        }
+    </style>
+    <!-- Sub-Banner End -->
 
     <!-- About Area Start -->
     <!-- <section class="about" id="about">
@@ -1125,7 +1235,7 @@
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center">
                     <div class="center-feature align-self-center">
-                        <img src="assets/images/fedisupervision-6L.png" alt="FediPet Super Vision 6L">
+                        <img src="assets/images/fedivision6l-blanco.png" alt="FediPet Super Vision 6L con alimento">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -1333,7 +1443,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedi-mini-alimento.png" alt="">
+                                    <img src="assets/images/fedismartmini-celeste.png" alt="Fedi Smart Mini 4L">
 
                                     <div class="links">
                                         <a href="https://mpago.la/24T6uJi" class="mybtn3 mybtn-bg"
@@ -1374,7 +1484,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedi-cam3l-alimento.png" alt="">
+                                    <img src="assets/images/fedicam3l-celeste.png" alt="Fedi Cam 3L">
 
                                     <div class="links">
                                         <a href="https://mpago.la/1uMtTgG" class="mybtn3 mybtn-bg"
@@ -1415,7 +1525,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedicam-mini4l-alimento.png" alt="">
+                                    <img src="assets/images/fedicammini-celeste.png" alt="Fedi Cam Mini 4L">
 
                                     <div class="links">
                                         <a href="https://mpago.la/2JfFYvK" class="mybtn3 mybtn-bg"
@@ -1456,7 +1566,7 @@
                         <div class="item">
                             <div class="single-product">
                                 <div class="img">
-                                    <img src="assets/images/fedivision-6l-alimento.png" alt="">
+                                    <img src="assets/images/fedivision6l-celeste.png" alt="Super Fedi Vision 6L">
 
                                     <div class="links">
                                         <a href="https://mpago.la/2P1U62h" class="mybtn3 mybtn-bg"
@@ -1603,28 +1713,28 @@
                                 <th></th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedi-mini-alimento.png" alt="">
+                                        <img src="assets/images/fedismartmini-blanco.png" alt="Fedi Smart Mini 4L">
                                     </div>
                                     <h3 class="product-title">Fedi Smart Mini 4L</h3>
                                     <p class="product-subtitle">Económico</p>
                                 </th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedi-cam3l-alimento.png" alt="">
+                                        <img src="assets/images/fedicam3l-blanco.png" alt="Fedi Cam 3L">
                                     </div>
                                     <h3 class="product-title">Fedi Cam 3L</h3>
                                     <p class="product-subtitle">Con Cámara HD</p>
                                 </th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedicam-mini4l-alimento.png" alt="">
+                                        <img src="assets/images/fedicammini-blanco.png" alt="Fedi Cam Mini 4L">
                                     </div>
                                     <h3 class="product-title">Fedi Cam Mini 4L</h3>
                                     <p class="product-subtitle">Compacto</p>
                                 </th>
                                 <th class="text-center">
                                     <div class="product-image">
-                                        <img src="assets/images/fedivision-6l-alimento.png" alt="">
+                                        <img src="assets/images/fedivision6l-blanco.png" alt="Super Fedi Vision 6L">
                                     </div>
                                     <h3 class="product-title">Super Fedi Vision 6L</h3>
                                     <p class="product-subtitle">Modelo Premium</p>
