@@ -567,9 +567,11 @@
             flex-direction: column !important;
             width: 100% !important;
         }
-        /* Imagen: altura fija, nunca se comprime */
+        /* Imagen: altura basada en contenido, anula height:100% del template */
+        .pricing .product-slider .item .single-product .img,
         .product-slider .single-product .img {
             flex: 0 0 auto !important;
+            height: auto !important;
         }
         /* Contenido: ocupa el espacio restante */
         .product-slider .single-product .content {
