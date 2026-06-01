@@ -1873,7 +1873,7 @@ select:focus {
 
 .pricing .product-slider .item .single-product .img {
   text-align: center;
-  background: #A6C3A9;
+  background: #0250c5;
   padding: 30px 30px 24px;
   position: relative;
   width: 100%;
@@ -4259,14 +4259,14 @@ select:focus {
 }
 
 .home9 .navigation.stiky-nav .navbar #mainmenu ul .nav-item .nav-link::before {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .navigation.stiky-nav .navbar #mainmenu ul .nav-item .nav-link:hover::before,
 .home9 .navigation.stiky-nav .navbar #mainmenu ul .nav-item .nav-link.active::before {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .navigation .navbar .navbar-brand img {
@@ -4278,14 +4278,14 @@ select:focus {
 }
 
 .home9 .navigation .navbar #mainmenu ul .nav-item .nav-link::before {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .navigation .navbar #mainmenu ul .nav-item .nav-link:hover::before,
 .home9 .navigation .navbar #mainmenu ul .nav-item .nav-link.active::before {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .hero-area {
@@ -4373,15 +4373,15 @@ select:focus {
 }
 
 .home9 .about .box .inner-box .icon i {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .home9 .about .box::after {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   width: 0%;
   height: 0%;
   top: 50%;
@@ -4467,8 +4467,8 @@ select:focus {
 }
 
 .home9 .pricing .product-slider .owl-controls .owl-nav div:hover {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .video {
@@ -4500,8 +4500,8 @@ select:focus {
 .home9 .video .video-play-btn i,
 .home9 .video .fun-box .inner-content2 .icon i,
 .home9 .video .fun-box .inner-content3 .icon i {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -4542,13 +4542,13 @@ select:focus {
 }
 
 .home9 .testimonial-area .testimonial-slider .owl-controls .owl-nav div:hover {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .testimonial-area .testimonial-slider .client .client-image::after {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .subscribe-section .newsletter-form-area {
@@ -4572,8 +4572,8 @@ select:focus {
 }
 
 .home9 .subscribe-section .download-buttons a {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   display: inline-block;
   padding: 18px 30px;
   font-size: 18px;
@@ -4617,8 +4617,8 @@ select:focus {
 }
 
 .home9 .subscribe-section .newsletter-form-area button {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   cursor: pointer;
 }
 
@@ -4642,8 +4642,8 @@ select:focus {
 }
 
 .home9 .contact .info-box .left .icon i {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -4654,15 +4654,15 @@ select:focus {
 }
 
 .home9 .bottomtotop i {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .compare-section .compare-table .price,
 .home9 .pricing .product-slider .item .single-product .content .price .new-price,
 .home9 .dealofweek .deal-slider-area .content .right-area .price p span {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -4682,24 +4682,24 @@ select:focus {
 }
 
 .home9 .navigation .navbar #mainmenu ul .nav-item.dropdown:hover .dropdown-menu .dropdown-item:hover {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .preloader-inner {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .navigation.stiky-nav .navbar #mainmenu ul .nav-item .nav-link:hover::before,
 .home9 .navigation.stiky-nav .navbar #mainmenu ul .nav-item .nav-link.active::before {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .navigation.stiky-nav .navbar #mainmenu ul .nav-item .nav-link::before {
-  background: #A6C3A9;
-  background: linear-gradient(to right, #A6C3A9, #C7BBA3);
+  background: #0250c5;
+  background: linear-gradient(to right, #0250c5, #E98457);
 }
 
 .home9 .footer {
