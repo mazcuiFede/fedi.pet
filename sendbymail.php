@@ -11,10 +11,22 @@ use PHPMailer\PHPMailer\Exception;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = htmlspecialchars(trim($_POST['nombre']));
     $celular = htmlspecialchars(trim($_POST['celular']));
-    $direccion = htmlspecialchars(trim($_POST['direccion']));
-    $comentarios = htmlspecialchars(trim($_POST['comentarios']));
+    $mailCliente = trim($_POST['mail'] ?? '');
+    $direccion = htmlspecialchars(trim($_POST['direccion'] ?? ''));
+    $localidad = htmlspecialchars(trim($_POST['localidad'] ?? ''));
+    $provincia = htmlspecialchars(trim($_POST['provincia'] ?? ''));
+    $codigoPostal = htmlspecialchars(trim($_POST['codigoPostal'] ?? ''));
+    $comentarios = htmlspecialchars(trim($_POST['comentarios'] ?? ''));
 
-    if (!empty($nombre) && !empty($celular) && !empty($direccion)) {
+    if (!filter_var($mailCliente, FILTER_VALIDATE_EMAIL)) {
+        header('Content-Type: application/json');
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'El mail ingresado no es válido.']);
+        exit();
+    }
+    $mailClienteSeguro = htmlspecialchars($mailCliente);
+
+    if (!empty($nombre) && !empty($celular) && !empty($direccion) && !empty($localidad) && !empty($provincia) && !empty($codigoPostal)) {
 
         try {
             $mail = new PHPMailer;
@@ -30,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Configuración del correo
             $mail->setFrom('no-reply@clokteam.com', 'FediPet Website'); // Correo y nombre del remitente
-            $mail->addAddress('fedi.pet25@gmail.com', 'FediPet'); // Correo y nombre del destinatario
-            // $mail->addAddress('fedi.pet25@gmail.com', 'FediPet'); // Email adicional si lo necesitas
+            $mail->addAddress('Fedi.pet25@gmail.com', 'FediPet'); // Correo y nombre del destinatario
+            $mail->addReplyTo($mailCliente, $nombre); // Responder directo al cliente
 
             // Contenido del mensaje
             $mail->isHTML(true); // Usar HTML
@@ -70,8 +82,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="value">' . $celular . '</div>
                         </div>
                         <div class="field">
-                            <div class="label">Dirección de Envío:</div>
-                            <div class="value">' . nl2br($direccion) . '</div>
+                            <div class="label">Mail:</div>
+                            <div class="value">' . $mailClienteSeguro . '</div>
+                        </div>
+                        <div class="field">
+                            <div class="label">Dirección:</div>
+                            <div class="value">' . $direccion . '</div>
+                        </div>
+                        <div class="field">
+                            <div class="label">Localidad:</div>
+                            <div class="value">' . $localidad . '</div>
+                        </div>
+                        <div class="field">
+                            <div class="label">Provincia:</div>
+                            <div class="value">' . $provincia . '</div>
+                        </div>
+                        <div class="field">
+                            <div class="label">Código Postal:</div>
+                            <div class="value">' . $codigoPostal . '</div>
                         </div>';
 
             if (!empty($comentarios)) {
@@ -96,7 +124,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->AltBody = "NUEVO PEDIDO FEDIPET - DATOS DE ENVÍO\n\n";
             $mail->AltBody .= "Nombre: $nombre\n";
             $mail->AltBody .= "Celular: $celular\n";
+            $mail->AltBody .= "Mail: $mailCliente\n";
             $mail->AltBody .= "Dirección: $direccion\n";
+            $mail->AltBody .= "Localidad: $localidad\n";
+            $mail->AltBody .= "Provincia: $provincia\n";
+            $mail->AltBody .= "Código Postal: $codigoPostal\n";
             if (!empty($comentarios)) {
                 $mail->AltBody .= "Comentarios: $comentarios\n";
             }
