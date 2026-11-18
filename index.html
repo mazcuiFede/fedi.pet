@@ -630,29 +630,55 @@
             border-radius: 6px;
             padding: 2px 6px;
         }
-        .pricing .single-product .content .btn-transfer {
+        .pricing .single-product .content .buy-buttons {
             margin-top: auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+        .pricing .single-product .content .btn-cuotas {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            min-height: 44px;
-            padding: 10px 18px;
+            text-align: center;
+            min-height: 48px;
+            padding: 6px 6px;
+            border-radius: 999px;
+            border: 2px solid #435BA6;
+            background: #435BA6;
+            color: #fff;
+            font-weight: 800;
+            font-size: 13px;
+            line-height: 1.2;
+            text-decoration: none;
+            transition: background .2s, color .2s;
+        }
+        .pricing .single-product .content .btn-cuotas:hover,
+        .pricing .single-product .content .btn-cuotas:focus {
+            background: #fff;
+            color: #435BA6;
+        }
+        /* El botón COMPRAR que aparecía al pasar el mouse sobre la foto queda reemplazado por los dos botones */
+        .pricing .product-slider .item .single-product .img .links { display: none !important; }
+        .pricing .single-product .content .btn-transfer {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-align: center;
+            min-height: 48px;
+            padding: 6px 6px;
+            line-height: 1.2;
             border-radius: 999px;
             border: 2px solid #25D366;
             color: #128C4A;
             background: #fff;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 13px;
             text-decoration: none;
             transition: background .2s, color .2s;
         }
-        .pricing .single-product .content .btn-transfer::before {
-            content: "\f232";
-            font-family: "Font Awesome 5 Brands";
-            font-weight: 400;
-            font-size: 18px;
-        }
+        .pricing .single-product .content .btn-transfer::before { content: none; }
         .pricing .single-product .content .btn-transfer:hover,
         .pricing .single-product .content .btn-transfer:focus {
             background: #25D366;
@@ -1491,8 +1517,11 @@
                                         Fedi Smart Mini 4L
                                     </h4>
                                     <p class="text">Sin Cámara · 4 Litros · Económico</p>
-                                    <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Fedi%20Smart%20Mini%204L%20pagando%20por%20transferencia%20%28%2483.900%29." target="_blank" rel="noopener" class="btn-transfer"
-                                        data-fedi-id="fedi-smart-mini-4l" data-fedi-name="Fedi Smart Mini 4L" data-fedi-value="83900">Pagar por transferencia</a>
+                                    <div class="buy-buttons">
+                                        <a href="https://mpago.la/24T6uJi" target="_blank" rel="noopener" class="btn-cuotas">Comprar en 3 cuotas</a>
+                                        <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Fedi%20Smart%20Mini%204L%20pagando%20por%20transferencia%20%28%2483.900%29." target="_blank" rel="noopener" class="btn-transfer"
+                                            data-fedi-id="fedi-smart-mini-4l" data-fedi-name="Fedi Smart Mini 4L" data-fedi-value="83900">Pagar por transferencia</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1519,8 +1548,11 @@
                                         Fedi Cam 3L
                                     </h4>
                                     <p class="text">Cámara HD 720P · 3 Litros<br>Ideal Gatos</p>
-                                    <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Fedi%20Cam%203L%20pagando%20por%20transferencia%20%28%24139.900%29." target="_blank" rel="noopener" class="btn-transfer"
-                                        data-fedi-id="fedi-cam-3l" data-fedi-name="Fedi Cam 3L" data-fedi-value="139900">Pagar por transferencia</a>
+                                    <div class="buy-buttons">
+                                        <a href="https://mpago.la/1uMtTgG" target="_blank" rel="noopener" class="btn-cuotas">Comprar en 3 cuotas</a>
+                                        <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Fedi%20Cam%203L%20pagando%20por%20transferencia%20%28%24139.900%29." target="_blank" rel="noopener" class="btn-transfer"
+                                            data-fedi-id="fedi-cam-3l" data-fedi-name="Fedi Cam 3L" data-fedi-value="139900">Pagar por transferencia</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1547,8 +1579,11 @@
                                         Fedi Cam Mini 4L
                                     </h4>
                                     <p class="text">Cámara HD 720P · 4 Litros · Compacto</p>
-                                    <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Fedi%20Cam%20Mini%204L%20pagando%20por%20transferencia%20%28%24153.900%29." target="_blank" rel="noopener" class="btn-transfer"
-                                        data-fedi-id="fedi-cam-mini-4l" data-fedi-name="Fedi Cam Mini 4L" data-fedi-value="153900">Pagar por transferencia</a>
+                                    <div class="buy-buttons">
+                                        <a href="https://mpago.la/2JfFYvK" target="_blank" rel="noopener" class="btn-cuotas">Comprar en 3 cuotas</a>
+                                        <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Fedi%20Cam%20Mini%204L%20pagando%20por%20transferencia%20%28%24153.900%29." target="_blank" rel="noopener" class="btn-transfer"
+                                            data-fedi-id="fedi-cam-mini-4l" data-fedi-name="Fedi Cam Mini 4L" data-fedi-value="153900">Pagar por transferencia</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1575,8 +1610,11 @@
                                         Super Fedi Vision 6L
                                     </h4>
                                     <p class="text">Cámara 2K HD · 6 Litros · Premium</p>
-                                    <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Super%20Fedi%20Vision%206L%20pagando%20por%20transferencia%20%28%24159.900%29." target="_blank" rel="noopener" class="btn-transfer"
-                                        data-fedi-id="super-fedi-vision-6l" data-fedi-name="Super Fedi Vision 6L" data-fedi-value="159900">Pagar por transferencia</a>
+                                    <div class="buy-buttons">
+                                        <a href="https://mpago.la/2P1U62h" target="_blank" rel="noopener" class="btn-cuotas">Comprar en 3 cuotas</a>
+                                        <a href="https://wa.me/5491150039795?text=Hola%21%20Quiero%20comprar%20el%20Super%20Fedi%20Vision%206L%20pagando%20por%20transferencia%20%28%24159.900%29." target="_blank" rel="noopener" class="btn-transfer"
+                                            data-fedi-id="super-fedi-vision-6l" data-fedi-name="Super Fedi Vision 6L" data-fedi-value="159900">Pagar por transferencia</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
