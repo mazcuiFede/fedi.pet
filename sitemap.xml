@@ -17,6 +17,11 @@
             <image:title>FediPet Logo</image:title>
         </image:image>
     </url>
+    <url>
+        <loc>https://fedi.pet/arrepentimiento</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
 
     <!-- Thank You Page -->
 

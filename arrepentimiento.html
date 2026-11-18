@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón de arrepentimiento | FediPet</title>
+    <meta name="description" content="Pedí la revocación de tu compra en FediPet dentro de los 10 días corridos desde que la recibiste.">
+    <link rel="canonical" href="https://fedi.pet/arrepentimiento">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <style>
+        :root {
+            --azul: #435BA6;
+            --ladrillo: #E98457;
+            --amarillo: #E1B949;
+            --crema: #F6F1EA;
+            --texto: #2B2B2B;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+            color: var(--texto);
+            background: var(--crema);
+            line-height: 1.55;
+        }
+        header {
+            background: var(--azul);
+            padding: 18px 24px;
+        }
+        header a { display: inline-block; }
+        header img { height: 38px; width: auto; display: block; filter: brightness(0) invert(1); }
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+        h1 {
+            color: var(--azul);
+            font-size: 32px;
+            line-height: 1.15;
+            margin: 0 0 16px;
+        }
+        h2 {
+            font-size: 20px;
+            margin: 32px 0 12px;
+            color: var(--azul);
+        }
+        p { margin: 0 0 14px; }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 6px 24px rgba(67, 91, 166, 0.10);
+            margin-top: 24px;
+        }
+        label {
+            display: block;
+            font-weight: 700;
+            font-size: 14px;
+            margin: 14px 0 6px;
+        }
+        input, select, textarea {
+            width: 100%;
+            font: inherit;
+            padding: 12px 14px;
+            border: 1.5px solid #d6d0c6;
+            border-radius: 10px;
+            background: #fff;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--azul);
+            box-shadow: 0 0 0 3px rgba(67, 91, 166, 0.18);
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .btn-wa { background: #25D366; color: #fff; }
+        .btn-mail { background: #fff; color: var(--azul); border-color: var(--azul); }
+        .note { font-size: 14px; color: #5b5b5b; }
+        .error { color: #b3261e; font-size: 14px; font-weight: 700; display: none; margin-top: 12px; }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 24px;
+            color: #5b5b5b;
+        }
+        footer a { color: var(--azul); }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/" aria-label="Volver a FediPet"><img src="assets/images/logo.png" alt="FediPet"></a>
+    </header>
+
+    <main>
+        <h1>Botón de arrepentimiento</h1>
+        <p>
+            Si compraste un dispenser Fedi en este sitio, podés arrepentirte de la compra dentro de los
+            <strong>10 días corridos</strong> desde que lo recibiste, sin tener que explicar el motivo
+            (Ley 24.240 de Defensa del Consumidor, art. 34, y Resolución 424/2020).
+        </p>
+        <p>
+            La devolución no tiene costo para vos: coordinamos el retiro y te reintegramos lo que pagaste por el
+            mismo medio de pago.
+        </p>
+
+        <div class="card">
+            <h2 style="margin-top:0">Pedí la revocación</h2>
+            <p class="note">Completá estos datos y mandanos el pedido por WhatsApp o por email. Te respondemos con un
+                código de trámite dentro de las 24 horas.</p>
+
+            <form id="arrepentimiento-form" novalidate>
+                <label for="nombre">Nombre y apellido</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+
+                <label for="modelo">Modelo que compraste</label>
+                <select id="modelo" name="modelo" required>
+                    <option value="">Elegí un modelo</option>
+                    <option>Super Fedi Vision 6L</option>
+                    <option>Fedi Cam 3L</option>
+                    <option>Fedi Cam Mini 4L</option>
+                    <option>Fedi Smart Mini 4L</option>
+                </select>
+
+                <label for="fecha">Fecha en que lo recibiste</label>
+                <input id="fecha" name="fecha" type="date" required>
+
+                <label for="pago">Número de operación de Mercado Pago o datos de la transferencia (opcional)</label>
+                <input id="pago" name="pago" type="text">
+
+                <div class="actions">
+                    <button type="submit" class="btn btn-wa" data-canal="whatsapp">Enviar por WhatsApp</button>
+                    <button type="submit" class="btn btn-mail" data-canal="email">Enviar por email</button>
+                </div>
+                <p class="error" id="form-error" role="alert">Completá nombre, modelo y fecha para enviar el pedido.</p>
+            </form>
+        </div>
+
+        <h2>Otras formas de contactarnos</h2>
+        <p>WhatsApp: <a href="https://wa.me/5491150039795">+54 9 11 5003-9795</a><br>
+            Email: <a href="mailto:fedi.pet25@gmail.com">fedi.pet25@gmail.com</a></p>
+
+        <h2>Garantía</h2>
+        <p>Todos los dispensers Fedi tienen 6 meses de garantía por fallas de fabricación. Si tu equipo tiene un
+            problema, escribinos por los mismos canales.</p>
+    </main>
+
+    <footer>
+        <a href="/">Volver a fedi.pet</a> · Copyright © 2026 FediPet
+    </footer>
+
+    <script>
+        (function () {
+            var form = document.getElementById('arrepentimiento-form');
+            var error = document.getElementById('form-error');
+            var canal = 'whatsapp';
+            form.querySelectorAll('button[type="submit"]').forEach(function (b) {
+                b.addEventListener('click', function () { canal = b.getAttribute('data-canal'); });
+            });
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var nombre = form.nombre.value.trim();
+                var modelo = form.modelo.value;
+                var fecha = form.fecha.value;
+                var pago = form.pago.value.trim();
+                if (!nombre || !modelo || !fecha) {
+                    error.style.display = 'block';
+                    return;
+                }
+                error.style.display = 'none';
+                var f = fecha.split('-').reverse().join('/');
+                var texto = 'Hola! Quiero arrepentirme de mi compra (botón de arrepentimiento).\n' +
+                    'Nombre: ' + nombre + '\n' +
+                    'Modelo: ' + modelo + '\n' +
+                    'Fecha de recepción: ' + f +
+                    (pago ? '\nOperación / transferencia: ' + pago : '');
+                if (canal === 'email') {
+                    window.location.href = 'mailto:fedi.pet25@gmail.com?subject=' +
+                        encodeURIComponent('Botón de arrepentimiento - ' + nombre) +
+                        '&body=' + encodeURIComponent(texto);
+                } else {
+                    window.open('https://wa.me/5491150039795?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -3,7 +3,10 @@
  * Requiere que el código base del Pixel esté en el <head> (fbq).
  *
  * index.html:   ViewContent (sección de modelos), InitiateCheckout (clic en COMPRAR),
- *               Contact (clic en WhatsApp)
+ *               Contact (clic en WhatsApp). Los botones "Pagar por transferencia" llevan
+ *               data-fedi-id / data-fedi-name / data-fedi-value y además mandan
+ *               InitiateCheckout (content_category: transferencia), así la campaña
+ *               aprende también de quien elige pagar por transferencia.
  * gracias.html: Purchase (llamado desde la propia página con FediTracking.trackPurchase)
  */
 (function () {
@@ -71,7 +74,22 @@
                 ts: Date.now()
             });
         } else if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
-            track('Contact', { content_name: 'WhatsApp' });
+            var tId = link.getAttribute('data-fedi-id');
+            if (tId) {
+                var tParams = {
+                    content_type: 'product',
+                    content_ids: [tId],
+                    content_name: link.getAttribute('data-fedi-name') || tId,
+                    content_category: 'transferencia',
+                    currency: CURRENCY,
+                    value: Number(link.getAttribute('data-fedi-value')) || undefined,
+                    num_items: 1
+                };
+                track('Contact', tParams);
+                track('InitiateCheckout', tParams);
+            } else {
+                track('Contact', { content_name: 'WhatsApp' });
+            }
         }
     }, true);
 
