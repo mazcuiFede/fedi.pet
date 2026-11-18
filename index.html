@@ -452,8 +452,8 @@
             display: block;
             width: 100%;
             height: auto;
-            max-height: calc(100vh - var(--hdr, 118px));
-            object-fit: cover;
+            /* sin tope de alto: en pantallas bajas recortaba arriba y abajo el banner */
+            object-fit: contain;
             object-position: center center;
         }
         /* Indicadores del carousel */
