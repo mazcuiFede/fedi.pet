@@ -13,6 +13,9 @@
     # RewriteCond %{HTTP_HOST} !^www\.
     # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
+    # Versión vieja del sitio eliminada: redirigir a la home
+    RewriteRule ^index2(\.html)?$ / [R=301,L]
+
     # Remove .html extension for cleaner URLs
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.html -f
