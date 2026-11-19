@@ -707,6 +707,48 @@
             border-radius: 999px;
             font-weight: 700;
         }
+        /* ===== Ventana de pago por transferencia ===== */
+        .tf-modal[hidden] { display: none !important; }
+        .tf-modal {
+            position: fixed; inset: 0; z-index: 100000;
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px;
+        }
+        .tf-backdrop { position: absolute; inset: 0; background: rgba(20, 24, 45, 0.6); }
+        .tf-dialog {
+            position: relative; width: 100%; max-width: 440px; max-height: calc(100vh - 32px); overflow-y: auto;
+            background: #fff; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            font-family: inherit; color: #2B2B2B;
+        }
+        .tf-head { background: #435BA6; color: #fff; padding: 20px 56px 18px 22px; border-radius: 20px 20px 0 0; }
+        .tf-head h3 { margin: 0 0 6px; color: #fff; font-size: 20px; font-weight: 800; line-height: 1.25; }
+        .tf-head p { margin: 0; color: #fff; font-size: 14px; opacity: .95; }
+        .tf-price { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; background: #fff; color: #435BA6; border-radius: 10px; padding: 6px 12px; font-weight: 800; font-size: 20px; }
+        .tf-price small { font-size: 12px; color: #fff; background: #E98457; border-radius: 6px; padding: 2px 6px; }
+        .tf-close {
+            position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 50%;
+            border: 0; background: rgba(255,255,255,0.18); color: #fff; font-size: 24px; line-height: 40px; cursor: pointer;
+        }
+        .tf-close:hover, .tf-close:focus { background: rgba(255,255,255,0.32); }
+        .tf-body { padding: 18px 22px 22px; }
+        .tf-step { font-size: 13px; font-weight: 800; color: #E98457; text-transform: uppercase; letter-spacing: .04em; margin: 0 0 8px; }
+        .tf-data { list-style: none; margin: 0 0 18px; padding: 0; border: 1.5px solid #ECE6DC; border-radius: 14px; }
+        .tf-data li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-top: 1px solid #ECE6DC; }
+        .tf-data li:first-child { border-top: 0; }
+        .tf-data span { display: block; font-size: 12px; color: #6b6b6b; font-weight: 600; }
+        .tf-data strong { display: block; font-size: 15px; font-weight: 800; word-break: break-all; }
+        .tf-copy {
+            flex: 0 0 auto; min-height: 36px; padding: 6px 12px; border-radius: 999px;
+            border: 1.5px solid #435BA6; background: #fff; color: #435BA6; font-weight: 800; font-size: 13px; cursor: pointer;
+        }
+        .tf-copy.is-ok { background: #435BA6; color: #fff; }
+        .tf-send {
+            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 52px;
+            border-radius: 999px; background: #25D366; color: #fff !important; font-weight: 800; font-size: 16px; text-decoration: none;
+        }
+        .tf-send:hover, .tf-send:focus { background: #1ebe5a; text-decoration: none; }
+        .tf-send i { font-size: 20px; }
+        .tf-note { margin: 10px 0 0; font-size: 13px; color: #6b6b6b; text-align: center; }
         /* ===== FIN BRAND EDITS ===== */
     </style>
 
@@ -2261,6 +2303,33 @@
     </div>
     <!-- Back to Top End -->
 
+    <!-- Ventana de pago por transferencia -->
+    <div class="tf-modal" id="tfModal" hidden>
+        <div class="tf-backdrop" data-tf-close></div>
+        <div class="tf-dialog" role="dialog" aria-modal="true" aria-labelledby="tfTitle">
+            <div class="tf-head">
+                <h3 id="tfTitle">Pagá por transferencia</h3>
+                <p id="tfModel">Fedi</p>
+                <div class="tf-price"><span id="tfPrice"></span><small>20% OFF</small></div>
+                <button type="button" class="tf-close" data-tf-close aria-label="Cerrar">&times;</button>
+            </div>
+            <div class="tf-body">
+                <p class="tf-step">1 · Transferí a esta cuenta</p>
+                <ul class="tf-data">
+                    <li><div><span>Alias</span><strong>fedi.pet</strong></div><button type="button" class="tf-copy" data-copy="fedi.pet">Copiar</button></li>
+                    <li><div><span>CBU</span><strong>1430001713043427350013</strong></div><button type="button" class="tf-copy" data-copy="1430001713043427350013">Copiar</button></li>
+                    <li><div><span>Titular</span><strong>Manuel Carpintero</strong></div></li>
+                    <li><div><span>CUIT</span><strong>20-37359357-6</strong></div></li>
+                    <li><div><span>Banco</span><strong>Brubank</strong></div></li>
+                </ul>
+                <p class="tf-step">2 · Mandanos el comprobante</p>
+                <a href="https://wa.me/5491150039795" target="_blank" rel="noopener" class="tf-send" id="tfSend"
+                    data-fedi-step="comprobante"><i class="fab fa-whatsapp" aria-hidden="true"></i> Enviar comprobante por WhatsApp</a>
+                <p class="tf-note">Con el comprobante te pedimos los datos de envío. El envío es gratis a todo el país.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- jquery -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery.js"></script>
@@ -2286,7 +2355,56 @@
     <!-- main -->
     <script src="assets/js/main.js"></script>
     <!-- Meta Pixel: eventos -->
-    <script src="assets/js/fedi-tracking.js?v=2"></script>
+    <script src="assets/js/fedi-tracking.js?v=3"></script>
+    <script>
+    (function () {
+        var modal = document.getElementById('tfModal');
+        if (!modal) return;
+        var send = document.getElementById('tfSend');
+        var lastFocus = null;
+        function precio(n) { return '$' + Number(n).toLocaleString('es-AR'); }
+        function abrir(btn) {
+            var nombre = btn.getAttribute('data-fedi-name') || 'Fedi';
+            var valor = btn.getAttribute('data-fedi-value');
+            document.getElementById('tfModel').textContent = nombre;
+            document.getElementById('tfPrice').textContent = valor ? precio(valor) : '';
+            var msg = 'Hola! Hice la transferencia' + (valor ? ' de ' + precio(valor) : '') + ' por el ' + nombre + '. Te mando el comprobante.';
+            send.href = 'https://wa.me/5491150039795?text=' + encodeURIComponent(msg);
+            ['data-fedi-id', 'data-fedi-name', 'data-fedi-value'].forEach(function (a) {
+                if (btn.getAttribute(a)) send.setAttribute(a, btn.getAttribute(a));
+            });
+            lastFocus = btn;
+            modal.hidden = false;
+            document.body.style.overflow = 'hidden';
+            modal.querySelector('.tf-close').focus();
+        }
+        function cerrar() {
+            modal.hidden = true;
+            document.body.style.overflow = '';
+            if (lastFocus) lastFocus.focus();
+        }
+        document.addEventListener('click', function (e) {
+            var btn = e.target.closest && e.target.closest('.btn-transfer');
+            if (btn) { e.preventDefault(); abrir(btn); return; }
+            if (e.target.closest && e.target.closest('[data-tf-close]')) { cerrar(); return; }
+            var c = e.target.closest && e.target.closest('.tf-copy');
+            if (c) {
+                var t = c.getAttribute('data-copy');
+                var ok = function () { c.textContent = 'Copiado'; c.classList.add('is-ok'); setTimeout(function () { c.textContent = 'Copiar'; c.classList.remove('is-ok'); }, 1800); };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(t).then(ok, function () { copiarViejo(t); ok(); });
+                } else { copiarViejo(t); ok(); }
+            }
+        });
+        function copiarViejo(t) {
+            var ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (err) {}
+            document.body.removeChild(ta);
+        }
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) cerrar(); });
+    })();
+    </script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9a51d88a89a500de',t:'MTc2NDI0ODgxOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
     <script defer
         src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"

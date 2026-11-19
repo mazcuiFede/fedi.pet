@@ -75,7 +75,18 @@
             });
         } else if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
             var tId = link.getAttribute('data-fedi-id');
-            if (tId) {
+            if (link.getAttribute('data-fedi-step') === 'comprobante') {
+                // Botón "Enviar comprobante" de la ventana de transferencia
+                track('AddPaymentInfo', {
+                    content_type: 'product',
+                    content_ids: tId ? [tId] : undefined,
+                    content_name: link.getAttribute('data-fedi-name') || undefined,
+                    content_category: 'transferencia',
+                    currency: CURRENCY,
+                    value: Number(link.getAttribute('data-fedi-value')) || undefined
+                });
+                track('Contact', { content_name: 'Comprobante transferencia', content_category: 'transferencia' });
+            } else if (tId) {
                 var tParams = {
                     content_type: 'product',
                     content_ids: [tId],
