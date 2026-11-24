@@ -16,10 +16,10 @@
 
     // Código del link de Mercado Pago -> modelo y precio
     var PRODUCTS = {
-        '24T6uJi': { id: 'fedi-smart-mini-4l', name: 'Fedi Smart Mini 4L', value: 104100 },
-        '1uMtTgG': { id: 'fedi-cam-3l', name: 'Fedi Cam 3L', value: 174900 },
-        '2JfFYvK': { id: 'fedi-cam-mini-4l', name: 'Fedi Cam Mini 4L', value: 191600 },
-        '2P1U62h': { id: 'super-fedi-vision-6l', name: 'Super Fedi Vision 6L', value: 199900 }
+        '24T6uJi': { id: 'fedi-smart-mini-4l', name: 'Fedi Smart Mini 4L', value: 78000 },
+        '1uMtTgG': { id: 'fedi-cam-3l', name: 'Fedi Cam 3L', value: 131100 },
+        '2JfFYvK': { id: 'fedi-cam-mini-4l', name: 'Fedi Cam Mini 4L', value: 143700 },
+        '2P1U62h': { id: 'super-fedi-vision-6l', name: 'Super Fedi Vision 6L', value: 149900 }
     };
 
     function track(eventName, params, eventId) {
